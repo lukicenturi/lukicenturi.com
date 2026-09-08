@@ -39,26 +39,28 @@ export default function ThemeToggle() {
 
     // Anchor the reveal on the toggle itself, not the pointer, so it
     // is exact for keyboard activation too. Overshoot the radius so
-    // the easing tail plays out past the screen corners.
+    // the easing tail plays out past the screen corners. Keyframes
+    // are injected with literal pixel values because WebKit does not
+    // resolve custom properties on view-transition pseudo-elements.
     const rect = event.currentTarget.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
-    const radius =
+    const radius = Math.ceil(
       Math.hypot(
         Math.max(x, window.innerWidth - x),
         Math.max(y, window.innerHeight - y),
-      ) * 1.15;
+      ) * 1.2,
+    );
 
-    const style = document.documentElement.style;
-    style.setProperty("--reveal-x", `${x}px`);
-    style.setProperty("--reveal-y", `${y}px`);
-    style.setProperty("--reveal-r", `${radius}px`);
+    let frames = document.getElementById("theme-reveal-frames");
+    if (!frames) {
+      frames = document.createElement("style");
+      frames.id = "theme-reveal-frames";
+      document.head.appendChild(frames);
+    }
+    frames.textContent = `@keyframes theme-reveal{from{clip-path:circle(0px at ${x}px ${y}px)}to{clip-path:circle(${radius}px at ${x}px ${y}px)}}`;
 
-    doc.startViewTransition(apply).finished.finally(() => {
-      style.removeProperty("--reveal-x");
-      style.removeProperty("--reveal-y");
-      style.removeProperty("--reveal-r");
-    });
+    doc.startViewTransition(apply);
   };
 
   return (

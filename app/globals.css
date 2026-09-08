@@ -36,17 +36,10 @@ html.light {
 
 /* The theme swap is animated by an expanding circle via the View
    Transitions API. The old snapshot must stay fully opaque beneath
-   while the new state is clipped in from the toggle's position. */
-@keyframes theme-reveal {
-  from {
-    clip-path: circle(0px at var(--reveal-x, 50%) var(--reveal-y, 0%));
-  }
-  to {
-    clip-path: circle(
-      var(--reveal-r, 150vmax) at var(--reveal-x, 50%) var(--reveal-y, 0%)
-    );
-  }
-}
+   while the new state is clipped in from the toggle's position.
+   The theme-reveal keyframes are injected at click time with literal
+   pixel values: custom properties do not reliably reach the
+   view-transition pseudo-elements in WebKit. */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
