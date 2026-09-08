@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 type DocumentWithViewTransition = Document & {
-  startViewTransition?: (update: () => void) => { ready: Promise<void> };
+  startViewTransition?: (update: () => void) => { finished: Promise<void> };
 };
 
 export default function ThemeToggle() {
@@ -37,27 +37,27 @@ export default function ThemeToggle() {
       return;
     }
 
-    const x = event.clientX;
-    const y = event.clientY;
-    const radius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y),
-    );
+    // Anchor the reveal on the toggle itself, not the pointer, so it
+    // is exact for keyboard activation too. Overshoot the radius so
+    // the easing tail plays out past the screen corners.
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const radius =
+      Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y),
+      ) * 1.15;
 
-    doc.startViewTransition(apply).ready.then(() => {
-      document.documentElement.animate(
-        {
-          clipPath: [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${radius}px at ${x}px ${y}px)`,
-          ],
-        },
-        {
-          duration: 600,
-          easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-          pseudoElement: "::view-transition-new(root)",
-        },
-      );
+    const style = document.documentElement.style;
+    style.setProperty("--reveal-x", `${x}px`);
+    style.setProperty("--reveal-y", `${y}px`);
+    style.setProperty("--reveal-r", `${radius}px`);
+
+    doc.startViewTransition(apply).finished.finally(() => {
+      style.removeProperty("--reveal-x");
+      style.removeProperty("--reveal-y");
+      style.removeProperty("--reveal-r");
     });
   };
 
