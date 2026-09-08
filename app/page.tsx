@@ -45,7 +45,7 @@ const experience = [
     company: "Xinchuan",
     period: "2026 to present",
     notes: [
-      "Building a SIM card management platform end to end, with services written in Go and a front end in Next.js.",
+      "Building a **SIM card management platform end to end**, with services written in Go and a front end in Next.js.",
     ],
   },
   {
@@ -53,8 +53,8 @@ const experience = [
     company: "Tempo Labs",
     period: "2024 to 2026",
     notes: [
-      "Developed an AI-powered due diligence platform for the client Keye, using React, Next.js and React Context.",
-      "Helped develop the Tempo Labs platform itself, a WYSIWYG React editor, built with React and Next.js.",
+      "Developed an **AI-powered due diligence platform** for the client Keye, using React, Next.js and React Context.",
+      "Helped develop the Tempo Labs platform itself, a **WYSIWYG React editor**, built with React and Next.js.",
     ],
   },
   {
@@ -62,9 +62,9 @@ const experience = [
     company: "Rotki",
     period: "2021 to 2024",
     notes: [
-      "Architected a secure multi-wallet integration system using Ethers.js and WalletConnect, enabling transactions, subscription purchases and NFT sponsorship minting for more than 10,000 users.",
-      "Built an open-source cryptocurrency portfolio tracker with real-time price updates and multi-chain asset tracking, using Vue.js 3 and Electron.",
-      "Migrated the build tooling from Vue CLI to Vite, and the test suite from Jest to Vitest for 50% faster runs, alongside end-to-end tests in Cypress.",
+      "Architected a **secure multi-wallet integration system** using Ethers.js and WalletConnect, enabling transactions, subscription purchases and NFT sponsorship minting for **more than 10,000 users**.",
+      "Built an **open-source cryptocurrency portfolio tracker** with real-time price updates and multi-chain asset tracking, using Vue.js 3 and Electron.",
+      "Migrated the build tooling from Vue CLI to Vite, and the test suite from Jest to Vitest for **50% faster runs**, alongside end-to-end tests in Cypress.",
     ],
   },
   {
@@ -72,9 +72,9 @@ const experience = [
     company: "Cermati",
     period: "2021 to 2022",
     notes: [
-      "Developed a super-app for financial services with React, Next.js, Ionic Capacitor and GraphQL.",
-      "Migrated a legacy jQuery codebase to React.",
-      "Integrated performance tooling built on Lighthouse and Puppeteer, and wrote unit tests for the component library.",
+      "Developed a **super-app for financial services** with React, Next.js, Ionic Capacitor and GraphQL.",
+      "Migrated a **legacy jQuery codebase to React**.",
+      "Integrated **performance tooling** built on Lighthouse and Puppeteer, and wrote unit tests for the component library.",
     ],
   },
   {
@@ -82,8 +82,8 @@ const experience = [
     company: "Ammana Fintek Syariah",
     period: "2019 to 2021",
     notes: [
-      "Built a platform enabling PayLater payments, with a responsive site in Vue.js and Laravel.",
-      "Earlier developed the peer-to-peer transaction website, and a Flutter mobile application for product demos.",
+      "Built a platform enabling **PayLater payments**, with a responsive site in Vue.js and Laravel.",
+      "Earlier developed the **peer-to-peer transaction website**, and a Flutter mobile application for product demos.",
     ],
   },
   {
@@ -91,7 +91,7 @@ const experience = [
     company: "Airy Rooms",
     period: "2020",
     notes: [
-      "Added BRI and DANA payment methods, migrated the mobile site to a newer React version, and built components in Storybook.",
+      "Added **BRI and DANA payment methods**, migrated the mobile site to a newer React version, and built components in Storybook.",
     ],
   },
   {
@@ -99,7 +99,7 @@ const experience = [
     company: "Ektizo Education",
     period: "2016",
     notes: [
-      "Developed a landing page and a tutoring platform with WordPress, PHP and Laravel.",
+      "Developed a landing page and a **tutoring platform** with WordPress, PHP and Laravel.",
     ],
   },
 ];
@@ -266,6 +266,18 @@ const navItems = [
   { label: "Honours", href: "#honours" },
   { label: "Write", href: "#write" },
 ];
+
+function Emphasized({ text }: { text: string }) {
+  return text.split("**").map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className="font-medium text-paper">
+        {part}
+      </strong>
+    ) : (
+      <span key={i}>{part}</span>
+    ),
+  );
+}
 
 function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
@@ -464,7 +476,9 @@ export default function Home() {
                   <p className="mt-1 text-sm text-paper-dim">{job.role}</p>
                   <ul className="mt-4 max-w-2xl space-y-2 border-l border-line pl-5 leading-relaxed text-paper-dim">
                     {job.notes.map((note) => (
-                      <li key={note}>{note}</li>
+                      <li key={note}>
+                        <Emphasized text={note} />
+                      </li>
                     ))}
                   </ul>
                 </div>
