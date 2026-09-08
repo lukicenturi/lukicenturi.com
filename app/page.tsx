@@ -82,6 +82,7 @@ const projects = [
     description:
       "The Ministry of Manpower's national internship platform, connecting graduates with more than 10,000 companies. Fullstack work spanning a Laravel monolith, Hyperf microservices, and React applications.",
     href: "https://maganghub.kemnaker.go.id/",
+    image: "/projects/maganghub.jpg",
   },
   {
     name: "HEIM",
@@ -90,6 +91,7 @@ const projects = [
     description:
       "Complete e-commerce build for an Indonesian apparel label: a Medusa backend and Next.js storefront with Midtrans payments, live courier rates, wishlists, and a bilingual English and Indonesian interface.",
     href: "https://storefront-production-1ded.up.railway.app/",
+    image: "/projects/heim.jpg",
   },
   {
     name: "AskMyBook",
@@ -98,6 +100,7 @@ const projects = [
     description:
       "An experiment with the OpenAI API: upload a PDF, then ask it questions and receive answers drawn from the document itself.",
     href: "https://askmybook.lukicenturi.vercel.app/",
+    image: "/projects/askmybook.jpg",
   },
   {
     name: "Fita",
@@ -106,6 +109,7 @@ const projects = [
     description:
       "A health-tech platform helping Indonesians build good habits through fitness, wellness and meal plans curated by professionals. Built the company profile site of more than ten pages.",
     href: "https://fita.co.id/",
+    image: "/projects/fita.jpg",
   },
   {
     name: "Radarchitecture",
@@ -114,6 +118,7 @@ const projects = [
     description:
       "Portfolio showcase for a Jakarta architecture firm devoted to innovative, sustainable design.",
     href: "https://radarchitecture.net/",
+    image: "/projects/radarchitecture.jpg",
   },
   {
     name: "Satumarket",
@@ -122,6 +127,7 @@ const projects = [
     description:
       "An e-grocery platform for buying groceries online, with virtual account payment integration.",
     href: "https://satumarket.com/",
+    image: "/projects/satumarket.jpg",
   },
   {
     name: "Sisnaker Karirhub",
@@ -130,6 +136,7 @@ const projects = [
     description:
       "Employment services platform for the Ministry of Manpower of Indonesia, connecting employers with job seekers at home and abroad.",
     href: "https://karirhub.kemnaker.go.id/",
+    image: "/projects/karirhub.jpg",
   },
   {
     name: "Binus Innovation Award",
@@ -138,6 +145,7 @@ const projects = [
     description:
       "Competition website for submitting innovations, with judging and scoring for the jury.",
     href: "https://www.binus.edu/innovation-award/2020/",
+    image: "/projects/binus.jpg",
   },
   {
     name: "Sisnaker Pelatihan",
@@ -146,6 +154,7 @@ const projects = [
     description:
       "Training platform for the Ministry of Manpower, later serving the Prakerja program with free course credits.",
     href: "https://pelatihan.kemnaker.go.id/",
+    image: "/projects/pelatihan.jpg",
   },
   {
     name: "JavaScript Games",
@@ -154,6 +163,7 @@ const projects = [
     description:
       "A collection of canvas games, written to master the fundamentals and object-oriented programming.",
     href: "https://lukicenturi.github.io/",
+    image: "/projects/jsgames.jpg",
   },
 ];
 
@@ -364,7 +374,7 @@ export default function Home() {
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid gap-2 border-b border-line py-8 transition-colors sm:grid-cols-[64px_1fr_auto] sm:gap-6"
+              className="group grid gap-6 border-b border-line py-10 sm:grid-cols-[64px_1fr_300px]"
             >
               <span className="text-xs tracking-[0.2em] text-paper-faint">
                 {String(i + 1).padStart(2, "0")}
@@ -383,9 +393,23 @@ export default function Home() {
                   {project.stack}
                 </p>
               </div>
-              <span className="text-xs uppercase tracking-[0.2em] text-paper-faint sm:text-right">
-                {project.year}
-              </span>
+              <figure>
+                <div className="border border-line p-1.5">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={`Screenshot of ${project.name}`}
+                      fill
+                      sizes="(min-width: 640px) 300px, 100vw"
+                      className="object-cover object-top grayscale transition duration-500 group-hover:grayscale-0"
+                    />
+                  </div>
+                </div>
+                <figcaption className="mt-2 flex justify-between text-xs uppercase tracking-[0.2em] text-paper-faint">
+                  <span>Fig. {String(i + 1).padStart(2, "0")}</span>
+                  <span>{project.year}</span>
+                </figcaption>
+              </figure>
             </a>
           ))}
         </div>
