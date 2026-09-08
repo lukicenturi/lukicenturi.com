@@ -1,6 +1,6 @@
 # lukicenturi.com
 
-Personal website of Luki Centuri, front end developer. A dark editorial single-page site built with Next.js and Tailwind CSS, set in Fraunces and Newsreader, deployed on Vercel.
+Personal website of Luki Centuri, front end developer. A dark editorial single-page site built with Next.js and Tailwind CSS, set in Inter, deployed on Vercel.
 
 ## Development
 

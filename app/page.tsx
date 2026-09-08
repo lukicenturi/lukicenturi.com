@@ -177,10 +177,10 @@ function SectionHeading({
 }) {
   return (
     <div className="flex items-baseline gap-6 border-t border-line pt-6">
-      <span className="font-display text-sm tracking-[0.25em] text-brass">
-        No. {number}
+      <span className="text-xs tracking-[0.3em] text-paper-faint">
+        {number}
       </span>
-      <h2 className="font-display text-3xl font-medium tracking-tight sm:text-4xl">
+      <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
         {title}
       </h2>
     </div>
@@ -203,7 +203,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-5xl items-baseline justify-between py-4">
           <a
             href="#top"
-            className="font-display text-sm font-semibold uppercase tracking-[0.3em]"
+            className="text-sm font-semibold uppercase tracking-[0.3em]"
           >
             Luki Centuri
           </a>
@@ -224,11 +224,11 @@ export default function Home() {
       {/* Hero */}
       <section id="top" className="grid gap-12 py-20 sm:grid-cols-[1fr_auto] sm:items-end sm:py-28">
         <div>
-          <Kicker>A monograph on the work of</Kicker>
-          <h1 className="mt-6 font-display text-[17vw] font-medium leading-[0.9] tracking-tight sm:text-8xl md:text-9xl">
+          <Kicker>The collected work of</Kicker>
+          <h1 className="mt-6 text-[17vw] font-semibold leading-[0.92] tracking-[-0.04em] sm:text-8xl md:text-9xl">
             Luki
             <br />
-            <span className="italic text-brass">Centuri</span>
+            <span className="text-paper-faint">Centuri</span>
           </h1>
           <p className="mt-8 max-w-md text-lg leading-relaxed text-paper-dim">
             Front end developer. Five years and counting in Web3, financial
@@ -247,8 +247,8 @@ export default function Home() {
               className="grayscale transition duration-700 hover:grayscale-0"
             />
           </div>
-          <figcaption className="mt-3 text-xs italic text-paper-faint">
-            Plate I. The author.
+          <figcaption className="mt-3 text-xs uppercase tracking-[0.2em] text-paper-faint">
+            Fig. 1 &nbsp;The author
           </figcaption>
         </figure>
       </section>
@@ -258,7 +258,7 @@ export default function Home() {
         <SectionHeading number="01" title="The Author" />
         <div className="mt-10 grid gap-10 md:grid-cols-[2fr_1fr]">
           <div className="space-y-6 text-lg leading-relaxed">
-            <p className="dropcap">
+            <p>
               Currently at Rotki, a Berlin-based company, architecting
               blockchain solutions with Vue.js 3 while developing React
               applications for open source projects and clients. The work runs
@@ -303,23 +303,18 @@ export default function Home() {
               className="grid gap-4 py-10 md:grid-cols-[220px_1fr]"
             >
               <div>
-                <p className="font-display text-sm tracking-[0.2em] text-brass">
+                <p className="text-xs uppercase tracking-[0.2em] text-paper-faint">
                   {job.period}
                 </p>
               </div>
               <div>
-                <h3 className="font-display text-2xl font-medium">
+                <h3 className="text-2xl font-semibold tracking-tight">
                   {job.company}
                 </h3>
-                <p className="mt-1 text-sm italic text-paper-dim">{job.role}</p>
-                <ul className="mt-4 max-w-2xl space-y-2 leading-relaxed text-paper-dim">
+                <p className="mt-1 text-sm text-paper-dim">{job.role}</p>
+                <ul className="mt-4 max-w-2xl space-y-2 border-l border-line pl-5 leading-relaxed text-paper-dim">
                   {job.notes.map((note) => (
-                    <li key={note} className="flex gap-3">
-                      <span aria-hidden className="text-brass">
-                        &sect;
-                      </span>
-                      <span>{note}</span>
-                    </li>
+                    <li key={note}>{note}</li>
                   ))}
                 </ul>
               </div>
@@ -340,11 +335,11 @@ export default function Home() {
               rel="noopener noreferrer"
               className="group grid gap-2 border-b border-line py-8 transition-colors sm:grid-cols-[64px_1fr_auto] sm:gap-6"
             >
-              <span className="font-display text-sm tracking-[0.2em] text-paper-faint">
+              <span className="text-xs tracking-[0.2em] text-paper-faint">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div>
-                <h3 className="font-display text-2xl font-medium transition-colors group-hover:text-brass sm:text-3xl">
+                <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">
                   {project.name}
                   <span className="ml-3 inline-block text-base text-paper-faint transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
                     &#8599;
@@ -357,7 +352,7 @@ export default function Home() {
                   {project.stack}
                 </p>
               </div>
-              <span className="font-display text-sm italic text-paper-faint sm:text-right">
+              <span className="text-xs uppercase tracking-[0.2em] text-paper-faint sm:text-right">
                 {project.year}
               </span>
             </a>
@@ -372,18 +367,16 @@ export default function Home() {
           {honours.map((honour) => (
             <article key={honour.event} className="bg-ink p-8 sm:p-10">
               <p
-                className={`font-display text-sm uppercase tracking-[0.25em] ${
-                  honour.gold ? "text-brass" : "text-paper-dim"
+                className={`text-xs uppercase tracking-[0.25em] ${
+                  honour.gold ? "text-paper" : "text-paper-dim"
                 }`}
               >
                 {honour.medal}
               </p>
-              <h3 className="mt-3 font-display text-2xl font-medium leading-snug">
+              <h3 className="mt-3 text-2xl font-semibold leading-snug tracking-tight">
                 {honour.event}
               </h3>
-              <p className="mt-1 text-sm italic text-paper-faint">
-                {honour.place}
-              </p>
+              <p className="mt-1 text-sm text-paper-faint">{honour.place}</p>
               <p className="mt-4 text-sm leading-relaxed text-paper-dim">
                 {honour.detail}
               </p>
@@ -402,7 +395,7 @@ export default function Home() {
           </p>
           <a
             href={`mailto:${EMAIL}`}
-            className="link-rule mt-6 inline-block font-display text-3xl font-medium italic text-brass sm:text-5xl"
+            className="link-rule mt-6 inline-block break-all text-3xl font-semibold tracking-tight sm:text-5xl"
           >
             {EMAIL}
           </a>
@@ -425,8 +418,8 @@ export default function Home() {
       {/* Colophon */}
       <footer className="border-t border-line py-10 text-xs leading-relaxed text-paper-faint">
         <p>
-          Set in Fraunces and Newsreader. Built with Next.js, published from
-          Berlin and Jakarta. &copy; {new Date().getFullYear()} Luki Centuri.
+          Set in Inter. Built with Next.js, published from Berlin and Jakarta.
+          &copy; {new Date().getFullYear()} Luki Centuri.
         </p>
       </footer>
     </div>
