@@ -10,7 +10,10 @@ export default function ThemeToggle() {
   const [light, setLight] = useState(false);
 
   useEffect(() => {
-    setLight(document.documentElement.classList.contains("light"));
+    const raf = requestAnimationFrame(() =>
+      setLight(document.documentElement.classList.contains("light")),
+    );
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   const toggle = (event: React.MouseEvent<HTMLButtonElement>) => {
