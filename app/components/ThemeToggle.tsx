@@ -38,19 +38,24 @@ export default function ThemeToggle() {
     }
 
     // Anchor the reveal on the toggle itself, not the pointer, so it
-    // is exact for keyboard activation too. Overshoot the radius so
-    // the easing tail plays out past the screen corners. Keyframes
-    // are injected with literal pixel values because WebKit does not
-    // resolve custom properties on view-transition pseudo-elements.
+    // is exact for keyboard activation too. Keyframes are injected at
+    // click time because WebKit does not resolve custom properties on
+    // view-transition pseudo-elements, and everything is expressed in
+    // percentages because Chromium's snapshot coordinate space does
+    // not match CSS pixels when browser zoom is not 100%. Percentage
+    // radii resolve against diagonal / sqrt(2), and the 1.2 factor
+    // overshoots the farthest corner so the easing tail plays out
+    // past the screen edges.
     const rect = event.currentTarget.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
-    const radius = Math.ceil(
-      Math.hypot(
-        Math.max(x, window.innerWidth - x),
-        Math.max(y, window.innerHeight - y),
-      ) * 1.2,
-    );
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const xPct = ((x / w) * 100).toFixed(2);
+    const yPct = ((y / h) * 100).toFixed(2);
+    const corner = Math.hypot(Math.max(x, w - x), Math.max(y, h - y));
+    const reference = Math.hypot(w, h) / Math.SQRT2;
+    const rPct = (((corner * 1.2) / reference) * 100).toFixed(2);
 
     let frames = document.getElementById("theme-reveal-frames");
     if (!frames) {
@@ -58,7 +63,7 @@ export default function ThemeToggle() {
       frames.id = "theme-reveal-frames";
       document.head.appendChild(frames);
     }
-    frames.textContent = `@keyframes theme-reveal{from{clip-path:circle(0px at ${x}px ${y}px)}to{clip-path:circle(${radius}px at ${x}px ${y}px)}}`;
+    frames.textContent = `@keyframes theme-reveal{from{clip-path:circle(0% at ${xPct}% ${yPct}%)}to{clip-path:circle(${rPct}% at ${xPct}% ${yPct}%)}}`;
 
     doc.startViewTransition(apply);
   };
