@@ -2,6 +2,7 @@ import Image from "next/image";
 import LocalTime from "./components/LocalTime";
 import Reveal from "./components/Reveal";
 import Spotlight from "./components/Spotlight";
+import ThemeToggle from "./components/ThemeToggle";
 
 const EMAIL = "lukicenturi@gmail.com";
 
@@ -300,17 +301,20 @@ export default function Home() {
           >
             Luki Centuri
           </a>
-          <nav className="hidden gap-7 text-xs uppercase tracking-[0.2em] text-paper-dim sm:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="link-rule hover:text-paper"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+          <div className="flex items-center gap-7">
+            <nav className="hidden gap-7 text-xs uppercase tracking-[0.2em] text-paper-dim sm:flex">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="link-rule hover:text-paper"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 

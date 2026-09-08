@@ -1,15 +1,46 @@
 @import "tailwindcss";
 
-@theme {
-  --color-ink: #0b0b0c;
-  --color-ink-raised: #141416;
-  --color-paper: #ececec;
-  --color-paper-dim: #9a9a9a;
-  --color-paper-faint: #5f5f5f;
-  --color-line: rgba(236, 236, 236, 0.12);
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-raised: var(--ink-raised);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-paper-faint: var(--paper-faint);
+  --color-line: var(--line);
 
   --font-display: "Inter Variable", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Inter Variable", "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+  --ink: #0b0b0c;
+  --ink-raised: #141416;
+  --paper: #ececec;
+  --paper-dim: #9a9a9a;
+  --paper-faint: #5f5f5f;
+  --line: rgba(236, 236, 236, 0.12);
+  --spotlight: rgba(236, 236, 236, 0.05);
+}
+
+html.light {
+  color-scheme: light;
+  --ink: #f3f2ef;
+  --ink-raised: #e9e7e2;
+  --paper: #141412;
+  --paper-dim: #57564f;
+  --paper-faint: #8d8c85;
+  --line: rgba(20, 20, 18, 0.16);
+  --spotlight: rgba(20, 20, 18, 0.04);
+}
+
+/* The theme swap is animated by an expanding circle via the View
+   Transitions API; disable the default cross-fade so the clip-path
+   reveal is the only motion. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 html {

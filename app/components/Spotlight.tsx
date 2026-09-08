@@ -11,7 +11,7 @@ export default function Spotlight() {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         if (ref.current) {
-          ref.current.style.background = `radial-gradient(560px at ${e.clientX}px ${e.clientY}px, rgba(236, 236, 236, 0.05), transparent 70%)`;
+          ref.current.style.background = `radial-gradient(560px at ${e.clientX}px ${e.clientY}px, var(--spotlight), transparent 70%)`;
         }
       });
     };

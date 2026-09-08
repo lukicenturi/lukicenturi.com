@@ -23,8 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="grain">{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="grain">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.theme==="light")document.documentElement.classList.add("light")}catch(e){}`,
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
