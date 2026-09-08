@@ -11,20 +11,36 @@ const socials = [
 
 const experience = [
   {
+    role: "Fullstack Developer",
+    company: "Xinchuan",
+    period: "2026 to present",
+    notes: [
+      "Building a SIM card management platform end to end, with services written in Go and a front end in Next.js.",
+    ],
+  },
+  {
+    role: "Front End Developer",
+    company: "Tempo Labs",
+    period: "2024 to 2026",
+    notes: [
+      "Developed an AI-powered due diligence platform for the client Keye, using React, Next.js and React Context.",
+      "Helped develop the Tempo Labs platform itself, a WYSIWYG React editor, built with React and Next.js.",
+    ],
+  },
+  {
     role: "Front End Developer",
     company: "Rotki",
-    period: "2021 to present",
+    period: "2021 to 2024",
     notes: [
-      "Architected a secure multi-wallet integration system using Ethers.js and WalletConnect.",
-      "Building an open-source cryptocurrency portfolio tracker serving more than 10,000 users.",
-      "Migrated the build tooling from Vue CLI to Vite, and the test suite from Jest to Vitest for 50% faster runs.",
-      "Writes and maintains end-to-end tests with Cypress.",
+      "Architected a secure multi-wallet integration system using Ethers.js and WalletConnect, enabling transactions, subscription purchases and NFT sponsorship minting for more than 10,000 users.",
+      "Built an open-source cryptocurrency portfolio tracker with real-time price updates and multi-chain asset tracking, using Vue.js 3 and Electron.",
+      "Migrated the build tooling from Vue CLI to Vite, and the test suite from Jest to Vitest for 50% faster runs, alongside end-to-end tests in Cypress.",
     ],
   },
   {
     role: "Front End Developer",
     company: "Cermati",
-    period: "2020 to 2022",
+    period: "2021 to 2022",
     notes: [
       "Developed a super-app for financial services with React, Next.js, Ionic Capacitor and GraphQL.",
       "Migrated a legacy jQuery codebase to React.",
@@ -231,9 +247,8 @@ export default function Home() {
             <span className="text-paper-faint">Centuri</span>
           </h1>
           <p className="mt-8 max-w-md text-lg leading-relaxed text-paper-dim">
-            Front end developer. Five years and counting in Web3, financial
-            systems and the craft of the interface, written chiefly in Vue and
-            React.
+            Fullstack developer. Web3, financial systems, AI tooling and the
+            craft of the interface, written in Go, TypeScript, Vue and React.
           </p>
         </div>
         <figure className="justify-self-start sm:justify-self-end">
@@ -259,13 +274,13 @@ export default function Home() {
         <div className="mt-10 grid gap-10 md:grid-cols-[2fr_1fr]">
           <div className="space-y-6 text-lg leading-relaxed">
             <p>
-              Currently at Rotki, a Berlin-based company, architecting
-              blockchain solutions with Vue.js 3 while developing React
-              applications for open source projects and clients. The work runs
-              from wallet integrations with WalletConnect to real-time data
-              visualisation, the UX of financial systems, and the patient
-              tuning of performance for solutions serving more than ten
-              thousand users.
+              Currently fullstack at Xinchuan, building a SIM card management
+              platform with Go on the back end and Next.js on the front.
+              Before that: AI tooling at Tempo Labs, and three years of
+              open-source blockchain work at Berlin-based Rotki, from wallet
+              integrations with WalletConnect to real-time data visualisation
+              and the patient tuning of performance for more than ten thousand
+              users.
             </p>
             <p className="text-paper-dim">
               Outside of work, you will find me on the padel court.
@@ -285,8 +300,8 @@ export default function Home() {
             <div>
               <Kicker>Tools of the trade</Kicker>
               <p className="mt-2 text-paper-dim">
-                Vue.js, React, Next.js, TypeScript, Three.js, Flutter, Laravel,
-                Figma
+                Go, TypeScript, Vue.js, React, Next.js, Three.js, Flutter,
+                Laravel, Figma
               </p>
             </div>
           </div>

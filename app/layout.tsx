@@ -4,13 +4,13 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.lukicenturi.com"),
-  title: "Luki Centuri, Front End Developer",
+  title: "Luki Centuri, Fullstack Developer",
   description:
-    "Front end developer with 5+ years of experience building Web3 applications with Vue.js and React. Two-time gold medalist in web design and development.",
+    "Fullstack developer working in Go, TypeScript, Vue.js and React, with a background in Web3 and financial systems. Two-time gold medalist in web design and development.",
   openGraph: {
-    title: "Luki Centuri, Front End Developer",
+    title: "Luki Centuri, Fullstack Developer",
     description:
-      "Front end developer with 5+ years of experience building Web3 applications with Vue.js and React.",
+      "Fullstack developer working in Go, TypeScript, Vue.js and React, with a background in Web3 and financial systems.",
     url: "https://www.lukicenturi.com",
     siteName: "Luki Centuri",
     type: "website",
