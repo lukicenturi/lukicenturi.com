@@ -76,6 +76,22 @@ const experience = [
 
 const projects = [
   {
+    name: "MagangHub",
+    year: "2026",
+    stack: "Laravel, Hyperf, React, PostgreSQL",
+    description:
+      "The Ministry of Manpower's national internship platform, connecting graduates with more than 10,000 companies. Fullstack work spanning a Laravel monolith, Hyperf microservices, and React applications.",
+    href: "https://maganghub.kemnaker.go.id/",
+  },
+  {
+    name: "HEIM",
+    year: "2026",
+    stack: "Next.js, Medusa, PostgreSQL",
+    description:
+      "Complete e-commerce build for an Indonesian apparel label: a Medusa backend and Next.js storefront with Midtrans payments, live courier rates, wishlists, and a bilingual English and Indonesian interface.",
+    href: "https://storefront-production-1ded.up.railway.app/",
+  },
+  {
     name: "AskMyBook",
     year: "2023",
     stack: "React, Ruby on Rails, OpenAI API",
