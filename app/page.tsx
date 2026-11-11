@@ -158,7 +158,7 @@ const projects: Project[] = [
   },
   {
     name: "Rotki Sponsor Mint",
-    year: "2025",
+    year: "2024",
     stack: "Nuxt, Vue.js, viem, WalletConnect, SIWE",
     description:
       "The sponsorship NFT mint for rotki, the open source portfolio tracker. Supporters connect a wallet, choose a tier and pay in ETH or stablecoins, and every mint funds the next release.",
