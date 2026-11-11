@@ -47,7 +47,8 @@ const experience = [
     location: "Taiwan (Remote)",
     period: "2026 to present",
     notes: [
-      "Building a **SIM card management platform end to end**, with services written in Go and a front end in Next.js.",
+      "Building an **end-to-end SIM card management platform**, with backend services in Go and a frontend in React and Next.js.",
+      "Building **Orderhub Service**, a centralized server that records transactions from multiple vertical products, with backend services in Go and a frontend in React and Next.js.",
     ],
   },
   {
