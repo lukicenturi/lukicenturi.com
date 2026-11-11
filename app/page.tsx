@@ -118,8 +118,8 @@ const projects: Project[] = [
     year: "2026",
     stack: "Next.js, TanStack Query, viem, wagmi, WebSocket",
     description:
-      "A social feed for Hyperliquid perps traders: the top 100 by 30-day PnL, a live feed of their orders, trader profiles with open positions and a PnL chart, watchlists with alerts, and a copy-trade sheet. Open source, and still in progress.",
-    role: "A solo build, in progress.",
+      "A social feed for Hyperliquid perps traders: the top 100 by 30-day PnL, a live feed of their orders, trader profiles with open positions and a PnL chart, watchlists with alerts, and a copy-trade sheet. Open source.",
+    role: "A solo build.",
     highlights: [
       "Prices, fills and PnL update live from one shared WebSocket.",
       "Search by address, ENS name or Hyperliquid name.",
