@@ -114,6 +114,22 @@ const experience = [
 
 const projects: Project[] = [
   {
+    name: "Slipstream",
+    year: "2026",
+    stack: "Next.js, TanStack Query, viem, wagmi, WebSocket",
+    description:
+      "A social feed for Hyperliquid perps traders: the top 100 by 30-day PnL, a live feed of their orders, trader profiles with open positions and a PnL chart, watchlists with alerts, and a copy-trade sheet. Open source, and still in progress.",
+    role: "A solo build, in progress.",
+    highlights: [
+      "Prices, fills and PnL update live from one shared WebSocket.",
+      "Search by address, ENS name or Hyperliquid name.",
+      "On testnet, connect a wallet and place a real copy-trade order.",
+    ],
+    href: "https://slipstream-hl.vercel.app/",
+    image: "/projects/slipstream.jpg",
+    tags: ["Crypto"],
+  },
+  {
     name: "MagangHub",
     year: "2026",
     stack: "Laravel, Hyperf, React, PostgreSQL",
