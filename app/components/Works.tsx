@@ -10,6 +10,7 @@ export type Project = {
   stack: string;
   description: string;
   role?: string;
+  highlights?: string[];
   href: string;
   image: string;
   tags: string[];
@@ -178,12 +179,27 @@ export default function Works({ projects }: { projects: Project[] }) {
                   {project.description}
                 </p>
                 {project.role && (
-                  <p className="mt-3 max-w-xl border-l border-line pl-4 text-sm leading-relaxed text-paper-dim">
-                    <span className="mr-2 text-[10px] uppercase tracking-[0.2em] text-paper-faint">
-                      Role
-                    </span>
-                    {project.role}
-                  </p>
+                  <div className="mt-3 max-w-xl border-l border-line pl-4 text-sm leading-relaxed text-paper-dim">
+                    <p>
+                      <span className="mr-2 text-[10px] uppercase tracking-[0.2em] text-paper-faint">
+                        Role
+                      </span>
+                      {project.role}
+                    </p>
+                    {project.highlights && (
+                      <ul className="mt-2 space-y-1">
+                        {project.highlights.map((item) => (
+                          <li key={item} className="flex gap-3">
+                            <span
+                              aria-hidden
+                              className="mt-[0.75em] h-px w-3 shrink-0 bg-paper-faint"
+                            />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 )}
                 <p className="mt-3 text-xs uppercase tracking-[0.2em] text-paper-faint">
                   {project.stack}

@@ -162,7 +162,13 @@ const projects: Project[] = [
     stack: "Nuxt, Vue.js, viem, WalletConnect, SIWE",
     description:
       "The sponsorship NFT mint for rotki, the open source portfolio tracker. Supporters connect a wallet, choose a tier and pay in ETH or stablecoins, and every mint funds the next release.",
-    role: "I built the mint flow end to end, across dozens of pull requests in rotki/rotki.com. In short: connect a wallet, pay on-chain in ETH or ERC-20 tokens, mint against live tier supply, then sign in with Ethereum to put your name on the NFT. Behind it, server-side caching keeps the NFT metadata and images fast.",
+    role: "I built the mint flow end to end, across dozens of pull requests.",
+    highlights: [
+      "Connect a wallet, with WalletConnect and viem.",
+      "Pay on-chain in ETH or ERC-20 tokens, and mint against live tier supply.",
+      "Sign in with Ethereum to put your name on the NFT.",
+      "Server-side caching keeps the NFT metadata and images fast.",
+    ],
     href: "https://rotki.com/sponsor/mint",
     image: "/projects/rotki.jpg",
     tags: ["Crypto"],
