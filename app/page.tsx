@@ -134,6 +134,26 @@ const projects: Project[] = [
     tags: ["E-commerce"],
   },
   {
+    name: "LuxVanilla",
+    year: "2026",
+    stack: "Next.js, Tailwind CSS, Three.js, PostHog",
+    description:
+      "Multilingual site for an Indonesian vanilla and cocoa exporter that sells in bulk worldwide: product list, process, FAQ and quote request, with a cookieless funnel tracked in PostHog.",
+    href: "https://luxvanilla.com/",
+    image: "/projects/luxvanilla.jpg",
+    tags: ["Landing Page"],
+  },
+  {
+    name: "Landing Page Proposals",
+    year: "2026",
+    stack: "HTML, Tailwind CSS",
+    description:
+      "A gallery of 14 demo landing pages pitched to local businesses around Tangerang, from a music school to dental clinics and a car detailer. Each demo has its own design, typeface and URL.",
+    href: "https://proposal.lukicenturi.com/",
+    image: "/projects/proposal.jpg",
+    tags: ["Landing Page"],
+  },
+  {
     name: "The Guessy",
     year: "2026",
     stack: "Swift, SwiftUI",
