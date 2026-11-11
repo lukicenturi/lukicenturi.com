@@ -3,6 +3,7 @@ import LocalTime from "./components/LocalTime";
 import Reveal from "./components/Reveal";
 import Spotlight from "./components/Spotlight";
 import ThemeToggle from "./components/ThemeToggle";
+import Works, { type Project } from "./components/Works";
 
 const EMAIL = "lukicenturi@gmail.com";
 
@@ -104,7 +105,7 @@ const experience = [
   },
 ];
 
-const projects = [
+const projects: Project[] = [
   {
     name: "MagangHub",
     year: "2026",
@@ -113,6 +114,7 @@ const projects = [
       "The Ministry of Manpower's national internship platform, connecting graduates with more than 10,000 companies. Fullstack work spanning a Laravel monolith, Hyperf microservices, and React applications.",
     href: "https://maganghub.kemnaker.go.id/",
     image: "/projects/maganghub.jpg",
+    tags: ["Government", "Web Platform"],
   },
   {
     name: "HEIM",
@@ -122,6 +124,7 @@ const projects = [
       "Complete e-commerce build for an Indonesian apparel label: a Medusa backend and Next.js storefront with Midtrans payments, live courier rates, wishlists, and a bilingual English and Indonesian interface.",
     href: "https://storefront-production-1ded.up.railway.app/",
     image: "/projects/heim.jpg",
+    tags: ["E-commerce"],
   },
   {
     name: "The Guessy",
@@ -131,6 +134,7 @@ const projects = [
       "An iOS game that turns WhatsApp chat exports into trivia about you and your favorite people. Questions are generated from the messages, and the chat never leaves the device.",
     href: "https://www.theguessy.app/",
     image: "/projects/guessy.jpg",
+    tags: ["Mobile Apps"],
   },
   {
     name: "Rosary Lock",
@@ -140,6 +144,7 @@ const projects = [
       "Pray before you scroll: an iOS app that shields distracting apps behind the Rosary, built on Apple's Screen Time API.",
     href: "https://rosarylock.app/",
     image: "/projects/rosarylock.jpg",
+    tags: ["Mobile Apps"],
   },
   {
     name: "BrainDefog",
@@ -149,6 +154,24 @@ const projects = [
       "A private recovery companion for quitting porn: streak tracking, brain fog monitoring and progress visualisation, with no account required.",
     href: "https://braindefog.app/",
     image: "/projects/braindefog.jpg",
+    tags: ["Mobile Apps"],
+  },
+  {
+    name: "Rotki Sponsor Mint",
+    year: "2025",
+    stack: "Nuxt, Vue.js, viem, WalletConnect, SIWE",
+    description:
+      "The sponsorship NFT mint for rotki, the open source portfolio tracker. Supporters connect a wallet, choose a tier and pay in ETH or stablecoins, and every mint funds the next release.",
+    role: "I built the mint flow end to end, across dozens of pull requests.",
+    highlights: [
+      "Connect a wallet, with WalletConnect and viem.",
+      "Pay on-chain in ETH or ERC-20 tokens, and mint against live tier supply.",
+      "Sign in with Ethereum to put your name on the NFT.",
+      "Server-side caching keeps the NFT metadata and images fast.",
+    ],
+    href: "https://rotki.com/sponsor/mint",
+    image: "/projects/rotki.jpg",
+    tags: ["Crypto"],
   },
   {
     name: "AskMyBook",
@@ -158,6 +181,7 @@ const projects = [
       "An experiment with the OpenAI API: upload a PDF, then ask it questions and receive answers drawn from the document itself.",
     href: "https://askmybook.lukicenturi.vercel.app/",
     image: "/projects/askmybook.jpg",
+    tags: ["AI"],
   },
   {
     name: "Fita",
@@ -167,6 +191,7 @@ const projects = [
       "A health-tech platform helping Indonesians build good habits through fitness, wellness and meal plans curated by professionals. Built the company profile site of more than ten pages.",
     href: "https://fita.co.id/",
     image: "/projects/fita.jpg",
+    tags: ["Landing Page"],
   },
   {
     name: "Radarchitecture",
@@ -176,6 +201,7 @@ const projects = [
       "Portfolio showcase for a Jakarta architecture firm devoted to innovative, sustainable design.",
     href: "https://radarchitecture.net/",
     image: "/projects/radarchitecture.jpg",
+    tags: ["Landing Page"],
   },
   {
     name: "Satumarket",
@@ -185,6 +211,7 @@ const projects = [
       "An e-grocery platform for buying groceries online, with virtual account payment integration.",
     href: "https://satumarket.com/",
     image: "/projects/satumarket.jpg",
+    tags: ["E-commerce", "Mobile Apps"],
   },
   {
     name: "Sisnaker Karirhub",
@@ -194,6 +221,7 @@ const projects = [
       "Employment services platform for the Ministry of Manpower of Indonesia, connecting employers with job seekers at home and abroad.",
     href: "https://karirhub.kemnaker.go.id/",
     image: "/projects/karirhub.jpg",
+    tags: ["Government"],
   },
   {
     name: "Binus Innovation Award",
@@ -203,6 +231,7 @@ const projects = [
       "Competition website for submitting innovations, with judging and scoring for the jury.",
     href: "https://www.binus.edu/innovation-award/2020/",
     image: "/projects/binus.jpg",
+    tags: ["Web Platform"],
   },
   {
     name: "Sisnaker Pelatihan",
@@ -212,6 +241,7 @@ const projects = [
       "Training platform for the Ministry of Manpower, later serving the Prakerja program with free course credits.",
     href: "https://pelatihan.kemnaker.go.id/",
     image: "/projects/pelatihan.jpg",
+    tags: ["Government"],
   },
   {
     name: "JavaScript Games",
@@ -221,6 +251,7 @@ const projects = [
       "A collection of canvas games, written to master the fundamentals and object-oriented programming.",
     href: "https://lukicenturi.github.io/",
     image: "/projects/jsgames.jpg",
+    tags: ["Games"],
   },
 ];
 
@@ -491,53 +522,7 @@ export default function Home() {
       {/* 03 Selected Works */}
       <section id="works" className="scroll-mt-24 py-16">
         <SectionHeading number="03" title="Selected Works" />
-        <div className="mt-10">
-          {projects.map((project, i) => (
-            <Reveal key={project.name}>
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group grid gap-6 border-b border-line py-10 sm:grid-cols-[64px_1fr_300px]"
-              >
-                <span className="text-xs tracking-[0.2em] text-paper-faint">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                    {project.name}
-                    <span className="ml-3 inline-block text-base text-paper-faint transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
-                      &#8599;
-                    </span>
-                  </h3>
-                  <p className="mt-2 max-w-xl leading-relaxed text-paper-dim">
-                    {project.description}
-                  </p>
-                  <p className="mt-3 text-xs uppercase tracking-[0.2em] text-paper-faint">
-                    {project.stack}
-                  </p>
-                </div>
-                <figure>
-                  <div className="border border-line p-1.5">
-                    <div className="relative aspect-[16/10] overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={`Screenshot of ${project.name}`}
-                        fill
-                        sizes="(min-width: 640px) 300px, 100vw"
-                        className="object-cover object-top grayscale transition duration-500 group-hover:grayscale-0"
-                      />
-                    </div>
-                  </div>
-                  <figcaption className="mt-2 flex justify-between text-xs uppercase tracking-[0.2em] text-paper-faint">
-                    <span>Fig. {String(i + 1).padStart(2, "0")}</span>
-                    <span>{project.year}</span>
-                  </figcaption>
-                </figure>
-              </a>
-            </Reveal>
-          ))}
-        </div>
+        <Works projects={projects} />
       </section>
 
       {/* 04 Honours */}
