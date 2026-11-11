@@ -44,6 +44,7 @@ const experience = [
   {
     role: "Fullstack Developer",
     company: "Xinchuan",
+    location: "Taiwan",
     period: "2026 to present",
     notes: [
       "Building a **SIM card management platform end to end**, with services written in Go and a front end in Next.js.",
@@ -52,6 +53,7 @@ const experience = [
   {
     role: "Front End Developer",
     company: "Tempo Labs",
+    location: "Canada",
     period: "2024 to 2026",
     notes: [
       "Developed an **AI-powered due diligence platform** for the client Keye, using React, Next.js and React Context.",
@@ -61,6 +63,7 @@ const experience = [
   {
     role: "Front End Developer",
     company: "Rotki",
+    location: "Berlin, Germany",
     period: "2021 to 2024",
     notes: [
       "Architected a **secure multi-wallet integration system** using Ethers.js and WalletConnect, enabling transactions, subscription purchases and NFT sponsorship minting for **more than 10,000 users**.",
@@ -71,6 +74,7 @@ const experience = [
   {
     role: "Front End Developer",
     company: "Cermati",
+    location: "Indonesia",
     period: "2021 to 2022",
     notes: [
       "Developed a **super-app for financial services** with React, Next.js, Ionic Capacitor and GraphQL.",
@@ -81,6 +85,7 @@ const experience = [
   {
     role: "Fullstack Developer",
     company: "Ammana Fintek Syariah",
+    location: "Indonesia",
     period: "2019 to 2021",
     notes: [
       "Built a platform enabling **PayLater payments**, with a responsive site in Vue.js and Laravel.",
@@ -90,6 +95,7 @@ const experience = [
   {
     role: "Front End Developer, Intern",
     company: "Airy Rooms",
+    location: "Indonesia",
     period: "2020",
     notes: [
       "Added **BRI and DANA payment methods**, migrated the mobile site to a newer React version, and built components in Storybook.",
@@ -98,6 +104,7 @@ const experience = [
   {
     role: "Web Developer, Intern",
     company: "Ektizo Education",
+    location: "Indonesia",
     period: "2016",
     notes: [
       "Developed a landing page and a **tutoring platform** with WordPress, PHP and Laravel.",
@@ -498,6 +505,9 @@ export default function Home() {
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-paper-faint">
                     {job.period}
+                  </p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-paper-faint">
+                    {job.location}
                   </p>
                 </div>
                 <div>
