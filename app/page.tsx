@@ -44,7 +44,7 @@ const experience = [
   {
     role: "Fullstack Developer",
     company: "Xinchuan",
-    location: "Taiwan",
+    location: "Taiwan (Remote)",
     period: "2026 to present",
     notes: [
       "Building a **SIM card management platform end to end**, with services written in Go and a front end in Next.js.",
@@ -53,7 +53,7 @@ const experience = [
   {
     role: "Front End Developer",
     company: "Tempo Labs",
-    location: "Canada",
+    location: "Canada (Remote)",
     period: "2024 to 2026",
     notes: [
       "Developed an **AI-powered due diligence platform** for the client Keye, using React, Next.js and React Context.",
@@ -63,7 +63,7 @@ const experience = [
   {
     role: "Front End Developer",
     company: "Rotki",
-    location: "Berlin, Germany",
+    location: "Berlin, Germany (Remote)",
     period: "2021 to 2024",
     notes: [
       "Architected a **secure multi-wallet integration system** using Ethers.js and WalletConnect, enabling transactions, subscription purchases and NFT sponsorship minting for **more than 10,000 users**.",
