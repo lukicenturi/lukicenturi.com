@@ -301,31 +301,37 @@ const projects: Project[] = [
 
 const honours = [
   {
-    medal: "Gold Medal",
+    title: "Gold Medal",
     event: "1st WorldSkills Asia",
     place: "Abu Dhabi, 2018",
     detail:
       "Web design and development, against participants from more than ten countries. Tasks spanned an HTML and JavaScript web game, a Laravel API consumed by a Vue client, and custom WordPress themes and plugins.",
+    proof:
+      "https://edukasi.kompas.com/read/2018/12/02/14223821/keren-lulusan-smk-indonesia-juara-umum-ajang-world-skills-asia-2018",
     gold: true,
   },
   {
-    medal: "Gold Medal",
+    title: "Gold Medal",
     event: "12th ASEAN Skills Competition",
     place: "Bangkok, 2018",
     detail:
       "Web design and development across eight competing countries, covering the same trinity: a browser game, a Laravel and Vue application, and deep WordPress customisation.",
+    proof:
+      "https://worldskillsasean2018.com/uploads/1536213089_WorldSkills-Scale-results.pdf",
     gold: true,
   },
   {
-    medal: "Medallion of Excellence",
+    title: "6th of 40",
     event: "45th WorldSkills Competition",
     place: "Kazan, 2019",
     detail:
-      "Placed 6th of 40 in web design and development. Speed rounds of WordPress plugins and loading animations, custom CMS features, a Laravel event booking system, and a route editor with dual edit and view modes.",
+      "Medallion of Excellence in web design and development. Speed rounds of WordPress plugins and loading animations, custom CMS features, a Laravel event booking system, and a route editor with dual edit and view modes.",
+    proof:
+      "https://results.worldskills.org/results?event=364&offset=0&skill=609&base_skill=127",
     gold: false,
   },
   {
-    medal: "3rd Place",
+    title: "3rd Place",
     event: "TechnoScape Hackathon, with Tiket.com",
     place: "48 hours",
     detail:
@@ -584,15 +590,25 @@ export default function Home() {
                     honour.gold ? "text-paper" : "text-paper-dim"
                   }`}
                 >
-                  {honour.medal}
+                  {honour.event}
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold leading-snug tracking-tight">
-                  {honour.event}
+                  {honour.title}
                 </h3>
                 <p className="mt-1 text-sm text-paper-faint">{honour.place}</p>
                 <p className="mt-4 text-sm leading-relaxed text-paper-dim">
                   {honour.detail}
                 </p>
+                {honour.proof && (
+                  <a
+                    href={honour.proof}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-rule mt-6 inline-block text-xs uppercase tracking-[0.25em] text-paper-dim hover:text-paper"
+                  >
+                    View result
+                  </a>
+                )}
               </article>
             </Reveal>
           ))}
